@@ -1,5 +1,6 @@
 
 # Retail Sales Analysis SQL Project
+
 Project Overview
 Project Title: Retail Sales Analysis
 Level: Intermediate
@@ -17,6 +18,7 @@ Project Structure
 Database Creation: The project starts by creating a database named Sales Analysis
 Table Creation: A table named retail_sales is created to store the sales data. The table structure includes columns for transaction ID, sale date, sale time, customer ID, gender, age, product category, quantity sold, price per unit, cost of goods sold (COGS), and total sale amount.
 CREATE DATABASE Sales Analysis;
+
 '''Sql
 CREATE TABLE retail_sales
 (
@@ -33,16 +35,20 @@ CREATE TABLE retail_sales
     total_sale FLOAT
 '''
 ***1. Data Exploration & Cleaning***
+
 Record Count: Determine the total number of records in the dataset.
+
 '''Sql
 Select * from Retail_Sales;
 ...
 Customer Count: Find out how many unique customers are in the dataset.
+
 '''Sql
 Select Count(Distinct(Customer_id)) as Total_Customers
 from Retail_Sales;
 '''
 Category Count: Identify all unique product categories in the dataset.
+
 '''Sql
 SELECT DISTINCT category FROM retail_sales;
 ...
@@ -62,7 +68,9 @@ WHERE
     gender IS NULL OR age IS NULL OR category IS NULL OR 
     quantity IS NULL OR price_per_unit IS NULL OR cogs IS NULL;
     '''
+    
 ***Dynamic Query for big tables with more Colums***
+
 '''Sql
   DO $$
 DECLARE
@@ -87,6 +95,7 @@ BEGIN
 END $$;
 
 '''Sql
+
  SELECT COUNT(*) - COUNT(total_sale) AS total_sale_nulls,
  COUNT(*) - COUNT(sale_date) AS sale_date_nulls,
  COUNT(*) - COUNT(sale_time) AS sale_time_nulls,
@@ -128,6 +137,7 @@ SELECT *
 FROM retail_sales
 WHERE sale_date = '2022-11-05';
 '''
+
 ***Q.2 Write a SQL query to retrieve all transactions where the category is 'Clothing' and the quantity sold is more than 10 in the month of Nov-2022***
 
 '''Sql
@@ -141,6 +151,7 @@ WHERE
     AND
     quantity >= 4
     '''
+    
 ***Q.3 Write a SQL query to calculate the total sales (total_sale) for each category.***
 
 '''Sql
@@ -151,6 +162,7 @@ SELECT
 FROM retail_sales
 GROUP BY 1
 '''
+
 ***Q.4 Write a SQL query to find the average age of customers who purchased items from the 'Beauty' category.***
 
 '''Sql
@@ -160,6 +172,7 @@ SELECT
 FROM retail_sales
 WHERE category = 'Beauty'
 '''
+
 ***Q.5 Write a SQL query to find all transactions where the total_sale is greater than 1000.***
 
 '''Sql
@@ -181,6 +194,7 @@ GROUP
     gender
 ORDER BY 1
 '''
+
 ***Q.7 Write a SQL query to calculate the average sale for each month. Find out best selling month in each year.***
 
 '''Sql
@@ -243,14 +257,12 @@ GROUP BY shift
 
 ***Findings***
 
-Customer Demographics: The dataset includes customers from various age groups, with sales distributed across different categories such as Clothing and Beauty.
+***Customer Demographics: The dataset includes customers from various age groups, with sales distributed across different categories such as Clothing and Beauty.
 High-Value Transactions: Several transactions had a total sale amount greater than 1000, indicating premium purchases.
 Sales Trends: Monthly analysis shows variations in sales, helping identify peak seasons.
 Customer Insights: The analysis identifies the top-spending customers and the most popular product categories.
 Reports
 Sales Summary: A detailed report summarizing total sales, customer demographics, and category performance.
 Trend Analysis: Insights into sales trends across different months and shifts.
-Customer Insights: Reports on top customers and unique customer counts per category.
+Customer Insights: Reports on top customers and unique customer counts per category.***
 
-Author - Zero Analyst
-This project is part of my portfolio, showcasing the SQL skills essential for data analyst roles. If you have any questions, feedback, or would like to collaborate, feel free to get in touch!
