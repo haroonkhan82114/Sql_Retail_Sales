@@ -244,6 +244,7 @@ GROUP BY 1, 2
 WHERE rank = 1
 
 '''
+
 ***Q.8 Write a SQL query to find the top 5 customers based on the highest total sales*** 
 
 '''Sql
@@ -257,6 +258,7 @@ ORDER BY 2 DESC
 LIMIT 5
 
 '''
+
 ***Q.9 Write a SQL query to find the number of unique customers who purchased items from each category.***
 
 '''Sql
@@ -268,6 +270,7 @@ FROM retail_sales
 GROUP BY category
 
 '''
+
 ***Q.10 Write a SQL query to create each shift and number of orders (Example Morning <=12, Afternoon Between 12 & 17, Evening >17)***
 
 '''Sql
